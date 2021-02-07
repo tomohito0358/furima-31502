@@ -1,24 +1,51 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## usersテーブル
 
-Things you may want to cover:
+| Column                 | Type    | Options     |
+| ---------------------- | ------- | ------------|
+| nickname               | string  | null: false |
+| mail_address           | text    | null: false |
+| password               | string  | null: false |
+| password_confirmation  | string  | null: false |
 
-* Ruby version
+## profilesテーブル
 
-* System dependencies
+| Column          | Type    | Options     |
+| --------------- | ------- | ------------|
+| first_name      | string  | null: false |
+| last_name       | string  | null: false |
+| first_name_read | string  | null: false |
+| last_name_read  | string  | null: false |
+| birth_day       | date    | null: false |
 
-* Configuration
+## itemsテーブル
 
-* Database creation
+| Column           | Type          | Options     |
+| -----------      | ------------- | ----------- |
+| item             | text          | null: false |
+| date_of_shipment | string        | null: false |
+| category         | string        | null: false | 
+| status           | text          | null: false |
+| location         | references    | null: false |
 
-* Database initialization
+## commentsテーブル
 
-* How to run the test suite
+| Column    | Type       | Options     |
+| --------- | ---------- | ----------- |
+| text      | text       | null: false |
+| user      | references | null: false |
+| prototype | references | null: false |
 
-* Services (job queues, cache servers, search engines, etc.)
+## buysテーブル
 
-* Deployment instructions
+| Column    | Type       | Options     |
+| --------- | ---------- | ----------- |
+| item_name | strings    | null: false |
 
-* ...
+## shopping_datesテーブル
+
+| Column           | Type       | Options     |
+| ---------------- | ---------- | ----------- |
+| nickname        | strings    | null: false |
+| shopping_address | text       | null: false |
