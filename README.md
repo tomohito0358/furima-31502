@@ -5,19 +5,13 @@
 | Column                 | Type    | Options     |
 | ---------------------- | ------- | ------------|
 | nickname               | string  | null: false |
-| mail_address           | text    | null: false |
-| password               | string  | null: false |
-| password_confirmation  | string  | null: false |
-
-## profilesテーブル
-
-| Column          | Type    | Options     |
-| --------------- | ------- | ------------|
-| first_name      | string  | null: false |
-| last_name       | string  | null: false |
-| first_name_read | string  | null: false |
-| last_name_read  | string  | null: false |
-| birth_day       | date    | null: false |
+| first_name             | string  | null: false |
+| last_name              | string  | null: false |
+| first_name_read        | string  | null: false |
+| last_name_read         | string  | null: false |
+| email                  | text    | null: false |
+| encrypted_password     | string  | null: false |
+| birth_day              | date    | null: false |
 
 ## itemsテーブル
 
@@ -47,5 +41,5 @@
 
 | Column           | Type       | Options     |
 | ---------------- | ---------- | ----------- |
-| nickname        | strings    | null: false |
+| nickname         | strings    | null: false |
 | shopping_address | text       | null: false |
