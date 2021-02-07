@@ -9,19 +9,20 @@
 | last_name              | string  | null: false |
 | first_name_read        | string  | null: false |
 | last_name_read         | string  | null: false |
-| email                  | text    | null: false |
+| email                  | string    | null: false |
 | encrypted_password     | string  | null: false |
 | birth_day              | date    | null: false |
 
 ## itemsテーブル
 
-| Column           | Type          | Options     |
-| -----------      | ------------- | ----------- |
-| item             | text          | null: false |
-| date_of_shipment | string        | null: false |
-| category         | string        | null: false | 
-| status           | text          | null: false |
-| location         | references    | null: false |
+| Column              | Type          | Options     |
+| -----------         | ------------- | ----------- |
+| name                | string         | null: false |
+| date_of_shipment-id | integer        | null: false |
+| category-id         | integer        | null: false | 
+| status-id           | integer        | null: false |
+| location-id         | integer        | null: false |
+| Shipping-id         | integer        | null: false | 
 
 ## commentsテーブル
 
