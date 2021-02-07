@@ -49,3 +49,4 @@
 | ---------------- | ---------- | ----------- |
 | nickname        | strings    | null: false |
 | shopping_address | text       | null: false |
+
