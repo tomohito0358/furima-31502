@@ -1,16 +1,16 @@
 # README
 
 ## usersテーブル
-| Column                 | Type    | Options     |
-| ---------------------- | ------- | ------------|
-| nickname               | string  | null: false |
-| email                  | string  | unique: true|
-| encrypted_password     | string  | null: false |
-| first_name             | string  | null: false |
-| last_name              | string  | null: false |
-| first_name_read        | string  | null: false |
-| last_name_read         | string  | null: false |
-| birth_day              | date    | null: false |
+| Column                 | Type    | Options                   |
+| ---------------------- | ------- | ------------------------- |
+| nickname               | string  | null: false               |
+| email                  | string  | null: false, unique: true |
+| encrypted_password     | string  | null: false               |
+| first_name             | string  | null: false               |
+| last_name              | string  | null: false               |
+| first_name_read        | string  | null: false               |
+| last_name_read         | string  | null: false               |
+| birth_day              | date    | null: false               |
 
 ## Association
 has_many :items
@@ -33,19 +33,11 @@ has_many :buys
 
 ## Association
 belongs_to :user
-hsa_many :comments
+has_many :comments
 has_many :items
-has_one :buys
+has_one :buy
 
 
-## commentsテーブル
-| Column    | Type       | Options     |
-| --------- | ---------- | ----------- |
-| text      | text       | null: false |
-| user      | references | null: false |
-
-## Association
-belongs_to :user
 
 
 ## buysテーブル
@@ -57,7 +49,7 @@ belongs_to :user
 ## Association
 belongs_to :item
 belongs_to :user
-has_one :shopping_dates
+has_one :shopping_date
 
 ## shopping_datesテーブル
 | Column         | Type       | Options                        |
@@ -72,9 +64,18 @@ has_one :shopping_dates
 |item_id         | integer    | null: false, foreign_key: true |
 
 ## Association
-belongs_to :buys
+belongs_to :buy
 
 
+
+
+<!-- ## commentsテーブル
+| Column    | Type       | Options     |
+| --------- | ---------- | ----------- |
+| text      | text       | null: false |
+| user      | references | null: false |
+## Association
+belongs_to :user -->
 
 
 <!-- | category_id    | integer    | foreign_key: true              |
