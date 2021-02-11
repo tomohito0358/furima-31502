@@ -14,7 +14,6 @@
 
 ## Association
 has_many :items
-has_many :comments
 has_many :buys
 
 
@@ -33,7 +32,6 @@ has_many :buys
 
 ## Association
 belongs_to :user
-has_many :comments
 has_many :items
 has_one :buy
 
@@ -51,6 +49,7 @@ belongs_to :item
 belongs_to :user
 has_one :shopping_date
 
+
 ## shopping_datesテーブル
 | Column         | Type       | Options                        |
 | ---------------| ---------- | ------------------------------ |
@@ -59,9 +58,9 @@ has_one :shopping_date
 |city            | string     | null: false                    |
 |address_number  | string     | null: false                    |
 |name_of_building| string     |                                |
-|tell            | string    | null: false                    |
-|user_id         | integer    | null: false, foreign_key: true |
-|item_id         | integer    | null: false, foreign_key: true |
+|tell            | string     | null: false                    |
+|buy_id          | strings    | null: false, foreign_key: true |
+
 
 ## Association
 belongs_to :buy
