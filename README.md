@@ -32,7 +32,6 @@ has_many :buys
 
 ## Association
 belongs_to :user
-has_many :items
 has_one :buy
 
 
@@ -59,7 +58,7 @@ has_one :shopping_date
 |address_number  | string     | null: false                    |
 |name_of_building| string     |                                |
 |tell            | string     | null: false                    |
-|buy_id          | strings    | null: false, foreign_key: true |
+|buy_id          | integer    | null: false, foreign_key: true |
 
 
 ## Association
