@@ -15,6 +15,7 @@
       <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
     </ul>
     <ul class='lists-right'>
+
       <% if user_signed_in? %>
         <div class="user_nav grid-6">
           <%= link_to current_user.nickname, "投稿", class: "user-nickname" %>
