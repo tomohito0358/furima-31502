@@ -6,13 +6,15 @@ class User < ApplicationRecord
   with_options                    presence: true do
     validates :nickname
     validates :email
-    validates :password,            length:{minimum:6}
-    validates :first_name
-    validates :last_name
-    validates :first_name_read
-    validates :first_name_read,     format: { with: /\A[\p{katakana}]+\z/}
-    validates :last_name_read
-    validates :last_name_read,      format: { with: /\A[\p{katakana}]+\z/}
+    validates :password,           format: {with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i}
+    with_options format: {with: /\A[ぁ-んァ-ン一-龥々]/} do
+      validates :first_name
+      validates :last_name
+    end
+    with_options format: { with: /\A[\p{katakana}]+\z/} do
+      validates :first_name_read
+      validates :last_name_read
+    end
     validates :birth_day
   end
 
