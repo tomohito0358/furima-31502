@@ -11,17 +11,21 @@ class Item < ApplicationRecord
 
   #ジャンルの選択が「--」の時は保存できないようにする
   validates :status_id, numericality: { other_than: 1 } 
+  validates :shipping_id, numericality: { other_than: 1 } 
+  validates :prefecture_id, numericality: { other_than: 0 } 
+  validates :date_of_shipment_id, numericality: { other_than: 1 } 
+
 
   with_options                    presence: true do
     validates :image
-    validates :name
-    validates :introduction 
+    validates :name, length: { maximum: 40 }
+    validates :introduction, length: { maximum: 1000 }
     validates :category_id
     validates :status_id
     validates :shipping_id 
     validates :prefecture_id
     validates :date_of_shipment_id
-    validates :price
-  end
+    validates :price,format: { with: /\A[0-9]+\z/},inclusion: { in: 300..9999999 }
 
+  end
 end
