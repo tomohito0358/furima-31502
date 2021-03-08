@@ -10,10 +10,13 @@ class Item < ApplicationRecord
   has_one_attached :image
 
   #ジャンルの選択が「--」の時は保存できないようにする
-  validates :status_id, numericality: { other_than: 1 } 
-  validates :shipping_id, numericality: { other_than: 1 } 
-  validates :prefecture_id, numericality: { other_than: 0 } 
-  validates :date_of_shipment_id, numericality: { other_than: 1 } 
+  with_options                numericality: { other_than: 1 } do
+    validates :category_id
+    validates :status_id
+    validates :shipping_id
+    validates :prefecture_id
+    validates :date_of_shipment_id
+  end
 
 
   with_options                    presence: true do
