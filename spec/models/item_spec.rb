@@ -26,29 +26,47 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Name can't be blank"
       end
-
+      
       it "introductionが空だと登録できない" do
         @item.introduction = ' '
         @item.valid?
         expect(@item.errors.full_messages).to include "Introduction can't be blank"
       end
-
-      it "category_idが--だと登録できない" do
+      
+      it "category_idが空だと登録できない" do
         @item.category_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include "Category can't be blank"
       end
- 
-      it "status_idが--だと登録できない" do
+      
+      it "category_idが空だと登録できない" do
+        @item.category_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Category must be other than 1"
+      end
+      
+      it "status_idが空だと登録できない" do
         @item.status_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include "Status can't be blank"
       end
-
+      
+      it "status_idが--だと登録できない" do
+        @item.status_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Status must be other than 1"
+      end
+      
       it "shipping_idが--だと登録できない" do
         @item.shipping_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include "Shipping can't be blank"
+      end
+      
+      it "shipping_idが--だと登録できない" do
+        @item.shipping_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Shipping must be other than 1"
       end
 
       it "prefecture_idが--だと登録できない" do
@@ -56,11 +74,23 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include "Prefecture can't be blank"
       end
+      
+      it "prefecture_idが--だと登録できない" do
+        @item.prefecture_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Prefecture must be other than 1"
+      end
 
       it "date_of_shipment_idが--だと登録できない" do
         @item.date_of_shipment_id = nil
         @item.valid?
         expect(@item.errors.full_messages).to include "Date of shipment can't be blank"
+      end
+      
+      it "date_of_shipment_idが--だと登録できない" do
+        @item.date_of_shipment_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include "Date of shipment must be other than 1"
       end
 
       it "priceが空だと登録できない" do
