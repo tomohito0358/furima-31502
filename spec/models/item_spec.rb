@@ -34,37 +34,37 @@ RSpec.describe Item, type: :model do
       end
 
       it "category_idが--だと登録できない" do
-        @item.category_id = 1
+        @item.category_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "Category must be other than 1"
+        expect(@item.errors.full_messages).to include "Category can't be blank"
       end
  
       it "status_idが--だと登録できない" do
-        @item.status_id = 1
+        @item.status_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "Status must be other than 1"
+        expect(@item.errors.full_messages).to include "Status can't be blank"
       end
 
       it "shipping_idが--だと登録できない" do
-        @item.shipping_id = 1
+        @item.shipping_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "Shipping must be other than 1"
+        expect(@item.errors.full_messages).to include "Shipping can't be blank"
       end
 
       it "prefecture_idが--だと登録できない" do
-        @item.prefecture_id = 1
+        @item.prefecture_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "Prefecture must be other than 1"
+        expect(@item.errors.full_messages).to include "Prefecture can't be blank"
       end
 
       it "date_of_shipment_idが--だと登録できない" do
-        @item.date_of_shipment_id = 1
+        @item.date_of_shipment_id = nil
         @item.valid?
-        expect(@item.errors.full_messages).to include "Date of shipment must be other than 1"
+        expect(@item.errors.full_messages).to include "Date of shipment can't be blank"
       end
 
       it "priceが空だと登録できない" do
-        @item.price = ' '
+        @item.price = nil
         @item.valid?
         expect(@item.errors.full_messages).to include "Price can't be blank"
       end
@@ -88,7 +88,7 @@ RSpec.describe Item, type: :model do
       end
 
       it "priceが299円以下では出品できない" do
-        @item.price = '299'
+        @item.price = 299
         @item.valid?
         expect(@item.errors.full_messages).to include "Price is not included in the list"
       end
