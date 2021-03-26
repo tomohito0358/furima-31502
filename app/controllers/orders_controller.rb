@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
   before_action :set_item
   before_action :set_item_2
-  before_action :pay_jp, only:[:create]
   
   def index
     @order_buy = OrderBuy.new
@@ -11,6 +10,7 @@ class OrdersController < ApplicationController
   def create    #購入のアクション
     @order_buy = OrderBuy.new(orderbuy_params)
     if @order_buy.valid?
+      pay_jp
       @order_buy.save
       return redirect_to root_path
     else

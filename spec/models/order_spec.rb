@@ -50,7 +50,7 @@ RSpec.describe Order,type: :model do
       end
       
       it "prefecture_idが[ 1 ]だと登録できない" do
-        @order_buy.prefecture_id = '1'
+        @order_buy.prefecture_id = 1
         @order_buy.valid?
         expect(@order_buy.errors.full_messages).to include "Prefecture must be other than 1"
       end
@@ -63,6 +63,12 @@ RSpec.describe Order,type: :model do
 
       
       it "tellが空だと登録できない" do
+        @order_buy.tell = '090aaaa2222'
+        @order_buy.valid?
+        expect(@order_buy.errors.full_messages).to include "Tell is invalid"
+      end
+
+      it "tellは英数混合だと登録できない" do
         @order_buy.tell = ' '
         @order_buy.valid?
         expect(@order_buy.errors.full_messages).to include "Tell can't be blank"
