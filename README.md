@@ -44,7 +44,7 @@ has_one :buy
 ## Association
 belongs_to :item
 belongs_to :user
-has_one :orders
+has_one :order
 
 
 ## ordersテーブル

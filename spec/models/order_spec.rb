@@ -63,15 +63,15 @@ RSpec.describe Order,type: :model do
 
       
       it "tellが空だと登録できない" do
-        @order_buy.tell = '090aaaa2222'
-        @order_buy.valid?
-        expect(@order_buy.errors.full_messages).to include "Tell is invalid"
-      end
-
-      it "tellは英数混合だと登録できない" do
         @order_buy.tell = ' '
         @order_buy.valid?
         expect(@order_buy.errors.full_messages).to include "Tell can't be blank"
+      end
+
+      it "tellは英数混合だと登録できない" do
+        @order_buy.tell ='090aaaa2222'
+        @order_buy.valid?
+        expect(@order_buy.errors.full_messages).to include "Tell is invalid"
       end
 
       it "tellに数字以外が入力されていると登録できない" do

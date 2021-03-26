@@ -5,7 +5,7 @@ FactoryBot.define do
     prefecture_id       {2}
     city                {'東京'}
     address_number      {'111'}
-    name_of_building    {" "}
+    name_of_building    {"テストビル"}
     tell                {'09011112222'}
   end
 end
