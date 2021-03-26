@@ -32,6 +32,12 @@ RSpec.describe Order,type: :model do
         expect(@order_buy.errors.full_messages).to include "Postal code can't be blank"
       end
 
+      it "postal-codeにに-が無いと登録できない" do
+        @order_buy.postal_code = '1231234'
+        @order_buy.valid?
+        expect(@order_buy.errors.full_messages).to include "Postal code is invalid"
+      end
+
       it "address_numberが空だと登録できない" do
         @order_buy.address_number = ' '
         @order_buy.valid?
