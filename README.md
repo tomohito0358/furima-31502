@@ -44,10 +44,10 @@ has_one :buy
 ## Association
 belongs_to :item
 belongs_to :user
-has_one :shopping_date
+has_one :order
 
 
-## shopping_datesテーブル
+## ordersテーブル
 | Column         | Type       | Options                        |
 | ---------------| ---------- | ------------------------------ |
 |postal_code     | string     | null: false                    |
