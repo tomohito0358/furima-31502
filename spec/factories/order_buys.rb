@@ -7,5 +7,7 @@ FactoryBot.define do
     address_number      {'111'}
     name_of_building    {"あア亜"}
     tell                {'09011112222'}
+    user_id             {10}
+    item_id             {10}
   end
 end

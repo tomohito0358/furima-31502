@@ -1,19 +1,14 @@
 class OrderBuy
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :city, :address_number, :name_of_building, :tell, :buy_id, :user_id, :item_id, :token
+  attr_accessor :postal_code, :prefecture_id, :city, :address_number, :name_of_building, :tell, :user_id, :item_id, :token
 
   with_options                     presence: true do
-    validates :postal_code,        format: { with: /\A\d{3}[-]\d{4}\z/, message: "is invalid. Include hyphen(-)" }
-    validates :prefecture_id,      numericality: { other_than: 1, message: "can't be blank" }
+    validates :postal_code,        format: { with: /\A\d{3}[-]\d{4}\z/ }
+    validates :prefecture_id,      numericality: { other_than: 1 }
     validates :city,               format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
-    validates :address_number,     format: { with: /\A[0-9０-９]+\z/ }
-    validates :name_of_building,   format: { with: /\A[ぁ-んァ-ヶ一-龥々ー]+\z/ }
-    validates :tell,     format: { with: /\A\d{10,11}\z/ }
+    validates :address_number
+    validates :tell,     format: { with: /\A\d{10,11}\z/, maximum: 11 }
     validates :token
-
-  end
-
-  with_options                     presence: true do
     validates :user_id
     validates :item_id
   end

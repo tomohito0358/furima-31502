@@ -38,10 +38,10 @@ RSpec.describe Order,type: :model do
         expect(@order_buy.errors.full_messages).to include "Address number can't be blank"
       end
       
-      it "prefecture_idが空だと登録できない" do
-        @order_buy.prefecture_id = ' '
+      it "prefecture_idが[ 1 ]だと登録できない" do
+        @order_buy.prefecture_id = '1'
         @order_buy.valid?
-        expect(@order_buy.errors.full_messages).to include "Prefecture can't be blank"
+        expect(@order_buy.errors.full_messages).to include "Prefecture must be other than 1"
       end
       
       it "cityが空だと登録できない" do
@@ -50,13 +50,31 @@ RSpec.describe Order,type: :model do
         expect(@order_buy.errors.full_messages).to include "City can't be blank"
       end
       
-      it "name_of_buildingが空だと登録できない" do
-        @order_buy.name_of_building = ' '
-        @order_buy.valid?
-        expect(@order_buy.errors.full_messages).to include "Name of building can't be blank"
-      end
-      
       it "tellが空だと登録できない" do
+        @order_buy.tell = ' '
+        @order_buy.valid?
+        expect(@order_buy.errors.full_messages).to include "Tell can't be blank"
+      end
+
+      it "tellに数字以外が入力されていると登録できない" do
+        @order_buy.tell = '090-1111-2222'
+        @order_buy.valid?
+        expect(@order_buy.errors.full_messages).to include "Tell is invalid"
+      end
+
+      it "tellが12桁以上だと登録できない" do
+        @order_buy.tell = '0901111122222'
+        @order_buy.valid?
+        expect(@order_buy.errors.full_messages).to include "Tell is invalid"
+      end
+
+      it "user_idが空だと登録できない" do
+        @order_buy.tell = ' '
+        @order_buy.valid?
+        expect(@order_buy.errors.full_messages).to include "Tell can't be blank"
+      end
+
+      it "item_idが空だと登録できない" do
         @order_buy.tell = ' '
         @order_buy.valid?
         expect(@order_buy.errors.full_messages).to include "Tell can't be blank"
